@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abba Letters — The Game</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="app">
+
+  <!-- HOME -->
+  <section id="screen-home" class="screen">
+    <h1>Abba Letters</h1>
+    <p class="tagline">The Codenames-style game of 365 paintings</p>
+    <input id="name" maxlength="24" placeholder="Your name" autocomplete="off">
+    <div class="row">
+      <button id="btn-create" class="primary">Create room</button>
+    </div>
+    <div class="row">
+      <input id="code" maxlength="6" placeholder="Room code" autocomplete="off" class="code-input">
+      <button id="btn-join">Join</button>
+    </div>
+    <p class="hint">4+ players · two teams · one Storyteller per team</p>
+  </section>
+
+  <!-- LOBBY -->
+  <section id="screen-lobby" class="screen hidden">
+    <h2>Room <span id="room-code" class="code"></span></h2>
+    <p class="hint">Share the code with your friends</p>
+    <div class="teams">
+      <div class="team team-gold">
+        <h3>🟡 Gold Team</h3>
+        <ul id="team-gold"></ul>
+        <button data-team="gold" class="join-team">Join Gold</button>
+      </div>
+      <div class="team team-blue">
+        <h3>🔵 Blue Team</h3>
+        <ul id="team-blue"></ul>
+        <button data-team="blue" class="join-team">Join Blue</button>
+      </div>
+    </div>
+    <label class="role-toggle"><input type="checkbox" id="role-cluegiver"> I'm a <b>Storyteller</b> (clue-giver)</label>
+    <button id="btn-start" class="primary">Start game</button>
+  </section>
+
+  <!-- GAME -->
+  <section id="screen-game" class="screen hidden wide">
+    <div id="status-bar">
+      <span id="turn-banner"></span>
+      <span id="score"></span>
+    </div>
+    <div id="clue-area"></div>
+    <div id="board"></div>
+    <div id="clue-form" class="hidden">
+      <input id="clue-text" maxlength="60" placeholder="Your clue — up to 8 words, make it evocative" autocomplete="off">
+      <input id="clue-count" type="number" min="0" max="9" value="2">
+      <button id="btn-clue" class="primary">Give clue</button>
+    </div>
+    <button id="btn-pass" class="hidden">Pass (end guessing)</button>
+    <div id="winner-banner" class="hidden"></div>
+  </section>
+
+  <div id="toast" class="hidden"></div>
+</div>
+<script src="game.js"></script>
+</body>
+</html>
